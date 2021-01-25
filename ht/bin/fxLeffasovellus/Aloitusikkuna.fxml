@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.text.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.layout.BorderPane?>
+
+
+<BorderPane prefHeight="281.0" prefWidth="409.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8.0.40">
+   <center>
+      <VBox alignment="CENTER" style="-fx-background-color: #E8DAEF;" BorderPane.alignment="CENTER">
+         <children>
+            <Label alignment="TOP_CENTER" maxWidth="1.7976931348623157E308" prefHeight="50.0" text="Leffasovellus">
+               <font>
+                  <Font name="Garamond" size="24.0" />
+               </font>
+            </Label>
+            <Label alignment="CENTER" maxWidth="1.7976931348623157E308" text="Versio 1.0" />
+            <Label alignment="BOTTOM_CENTER" maxWidth="1.7976931348623157E308" prefHeight="40.0" text="Maria Hyväkkä &amp; Anniina Häkkinen">
+               <font>
+                  <Font name="Garamond" size="20.0" />
+               </font>
+            </Label>
+         </children>
+      </VBox>
+   </center>
+   <bottom>
+      <BorderPane BorderPane.alignment="CENTER" style="-fx-background-color: #E8DAEF;">
+         <right>
+            <Button defaultButton="true" minWidth="70.0" mnemonicParsing="false" text="Jatka" BorderPane.alignment="CENTER" />
+         </right>
+         <left>
+         	<Button defaultButton="true" minWidth="70.0" mnemonicParsing="false" text="Lopeta" BorderPane.alignment="CENTER" />
+         </left>
+         <BorderPane.margin>
+            <Insets />
+         </BorderPane.margin>
+         <padding>
+            <Insets bottom="40.0" left="100.0" right="100.0" top="10.0" />
+         </padding>
+      </BorderPane>
+   </bottom>
+</BorderPane>

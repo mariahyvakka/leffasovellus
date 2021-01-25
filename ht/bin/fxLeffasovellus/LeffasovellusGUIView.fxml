@@ -1,0 +1,211 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import fi.jyu.mit.fxgui.ComboBoxChooser?>
+<?import fi.jyu.mit.fxgui.ListChooser?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Menu?>
+<?import javafx.scene.control.MenuBar?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.SplitPane?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.Tooltip?>
+<?import javafx.scene.input.KeyCodeCombination?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.VBox?>
+
+<BorderPane prefHeight="439.0" prefWidth="698.0" styleClass="lista" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="fxLeffasovellus.LeffasovellusGUIController">
+   <top>
+      <MenuBar maxWidth="1.7976931348623157E308" BorderPane.alignment="CENTER">
+        <menus>
+          <Menu text="_Tiedosto">
+            <items>
+              <MenuItem onAction="#handleTallenna" text="_Tallenna">
+                     <accelerator>
+                        <KeyCodeCombination alt="UP" code="S" control="DOWN" meta="UP" shift="UP" shortcut="UP" />
+                     </accelerator>
+                  </MenuItem>
+    	          <MenuItem onAction="#handleOhjeet" text="Ohjeet">
+                  </MenuItem>
+                  <MenuItem mnemonicParsing="true" onAction="#handleLopeta" text="L_opeta">
+                  </MenuItem>
+            </items>
+          </Menu>
+          <Menu mnemonicParsing="true" text="_Muokkaa">
+            <items>
+	              <MenuItem mnemonicParsing="true" onAction="#handleUusiHenkilo" text="Lisää uusi henkilö..." />
+                  <MenuItem mnemonicParsing="true" onAction="#handleUusiElokuva" text="Lisää uusi elokuva..." />
+                  <MenuItem mnemonicParsing="true" onAction="#handleMuokkaaElokuvaa" text="Muokkaa elokuvaa..." />
+                  <MenuItem mnemonicParsing="true" onAction="#handleMuokkaaHenkiloa" text="Muokkaa henkilöä..." />
+	              <MenuItem mnemonicParsing="true" onAction="#handlePoistaHenkilo" text="Poista henkilö..." />
+                  <MenuItem mnemonicParsing="true" onAction="#handlePoistaElokuva" text="Poista elokuva..." />
+            </items>
+          </Menu>
+        </menus>
+      </MenuBar>
+   </top>
+   <center>
+      <SplitPane dividerPositions="0.27, 0.66" BorderPane.alignment="CENTER">
+        <items>
+            <BorderPane maxWidth="150.0" minWidth="100.0" prefWidth="138.0" styleClass="lista">
+               <center>
+                  <ListChooser fx:id="chooserHenkilot" maxHeight="1.7976931348623157E308" prefHeight="100.0" rivit="Anniina&#10;Maria&#10;Pekka&#10;" BorderPane.alignment="CENTER" />
+               </center>
+               <top>
+                  <VBox BorderPane.alignment="CENTER">
+                     <children>
+                        <Label alignment="CENTER" maxWidth="300.0" text="Henkilöhaku" />
+                        <TextField fx:id="textHenkiloHaku" onAction="#handleHaku" />
+                        <ComboBoxChooser fx:id="textHenkiloHakuehto" maxWidth="300.0" rivit="nimi&#10;" />
+                        <Label alignment="CENTER" maxWidth="300.0" text="Jäsenet" />
+                     </children>
+                  </VBox>
+               </top>
+               <bottom>
+                  <Label fx:id="textVirheHenkilo" alignment="CENTER" maxWidth="1.7976931348623157E308" BorderPane.alignment="CENTER" />
+               </bottom>
+            </BorderPane>
+            <BorderPane prefWidth="200.0" styleClass="lista">
+               <top>
+                  <VBox BorderPane.alignment="CENTER">
+                     <children>
+                        <Label alignment="CENTER" maxWidth="300.0" text="Elokuvahaku" />
+                        <TextField fx:id="textElokuvaHaku" onAction="#handleElokuvaHaku" />
+                        <ComboBoxChooser fx:id="textHakuehto" maxWidth="300.0" rivit="nimi&#10;ohjaaja&#10;genre&#10;ilmestymisvuosi&#10;kesto&#10;" />
+                        <Label alignment="CENTER" maxWidth="300.0" text="Elokuvat" />
+                     </children>
+                  </VBox>
+               </top>
+               <center>
+               	  	<ListChooser fx:id="textElokuvaLista" maxHeight="1.7976931348623157E308" prefHeight="100.0" rivit="Titanic&#10;Inception&#10;" BorderPane.alignment="CENTER" />
+               </center>
+               <bottom>
+                  <Label fx:id="textVirheElokuva" alignment="CENTER" maxWidth="1.7976931348623157E308" BorderPane.alignment="CENTER" />
+               </bottom>
+            </BorderPane>
+            <BorderPane styleClass="lista">
+               <top>
+                  <Label text="Elokuvan tiedot" BorderPane.alignment="CENTER" />
+               </top>
+               <center>
+               	  <ScrollPane fx:id="panelElokuva" fitToWidth="true" pannable="true" BorderPane.alignment="CENTER">
+                     <content>
+                        <GridPane hgap="10.0">
+                           <columnConstraints>
+                              <ColumnConstraints fillWidth="false" halignment="RIGHT" hgrow="NEVER" minWidth="10.0" />
+                              <ColumnConstraints hgrow="ALWAYS" minWidth="10.0" />
+                           </columnConstraints>
+                           <rowConstraints>
+                              <RowConstraints minHeight="10.0" vgrow="SOMETIMES" />
+                              <RowConstraints minHeight="10.0" vgrow="SOMETIMES" />
+                              <RowConstraints minHeight="10.0" vgrow="SOMETIMES" />
+                              <RowConstraints minHeight="10.0" vgrow="SOMETIMES" />
+                              <RowConstraints />
+                           </rowConstraints>
+                           <children>
+                              <Label text="nimi">
+                                 <GridPane.margin>
+                                    <Insets bottom="20.0" />
+                                 </GridPane.margin></Label>
+                              <Label text="ohjaaja" GridPane.rowIndex="1">
+                                 <GridPane.margin>
+                                    <Insets bottom="20.0" />
+                                 </GridPane.margin></Label>
+                              <Label text="genre" GridPane.rowIndex="2">
+                                 <GridPane.margin>
+                                    <Insets bottom="20.0" />
+                                 </GridPane.margin></Label>
+                              <Label minWidth="-Infinity" text="ilmestymisvuosi" GridPane.rowIndex="3">
+                                 <GridPane.margin>
+                                    <Insets bottom="20.0" />
+                                 </GridPane.margin></Label>
+                              <Label text="kesto(min)" GridPane.rowIndex="4">
+                                 <GridPane.margin>
+                                    <Insets bottom="20.0" />
+                                 </GridPane.margin></Label>
+                              <TextField fx:id="textElokuvanNimi" text="Titanic" GridPane.columnIndex="1" GridPane.hgrow="ALWAYS">
+                                 <GridPane.margin>
+                                    <Insets bottom="20.0" />
+                                 </GridPane.margin></TextField>
+                              <TextField fx:id="textOhjaaja" text="James Cameron" GridPane.columnIndex="1" GridPane.hgrow="ALWAYS" GridPane.rowIndex="1">
+                                 <GridPane.margin>
+                                    <Insets bottom="20.0" />
+                                 </GridPane.margin></TextField>
+                              <TextField fx:id="textGenre" text="Draama" GridPane.columnIndex="1" GridPane.hgrow="ALWAYS" GridPane.rowIndex="2">
+                                 <GridPane.margin>
+                                    <Insets bottom="20.0" />
+                                 </GridPane.margin></TextField>
+                              <TextField fx:id="textIlmestymisvuosi" text="1997" GridPane.columnIndex="1" GridPane.hgrow="ALWAYS" GridPane.rowIndex="3">
+                                 <GridPane.margin>
+                                    <Insets bottom="20.0" />
+                                 </GridPane.margin></TextField>  
+                              <TextField fx:id="textKesto" text="194" GridPane.columnIndex="1" GridPane.hgrow="ALWAYS" GridPane.rowIndex="4">
+                                 <GridPane.margin>
+                                    <Insets bottom="20.0" />
+                                 </GridPane.margin></TextField>                            
+                           </children>
+                           <opaqueInsets>
+                              <Insets left="10.0" top="10.0" />
+                           </opaqueInsets>
+                           <padding>
+                              <Insets left="10.0" right="10.0" top="10.0" />
+                           </padding>
+                        </GridPane>
+                     </content>
+                     <BorderPane.margin>
+                        <Insets />
+                     </BorderPane.margin>
+                  </ScrollPane>
+               </center>
+               <bottom>
+                  <Label fx:id="textVirheTiedot" alignment="CENTER" maxWidth="1.7976931348623157E308" BorderPane.alignment="CENTER" />
+               </bottom>
+            </BorderPane>
+        </items>
+         <padding>
+            <Insets left="5.0" right="5.0" />
+         </padding>
+      </SplitPane>
+   </center>
+   <bottom>
+      <BorderPane BorderPane.alignment="CENTER">
+         <left>
+         	<HBox spacing="10.0" BorderPane.alignment="CENTER">
+               <children>
+                  <Button mnemonicParsing="true" onAction="#handleLisaaKatsottuihin" text="Lisää _katsottuihin">
+                     <tooltip>
+                        <Tooltip text="Lisää omiin katsottuihin elokuviin" />
+                     </tooltip></Button>
+                  <Button mnemonicParsing="true" onAction="#handleNaytaKaikkiElokuvat" text="Näytä kaikki elokuvat">
+                     <tooltip>
+                        <Tooltip text="Näyttää listan kaikista elokuvista" />
+                     </tooltip>
+                  </Button>
+               </children>
+               <padding>
+                  <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+               </padding>
+            </HBox>
+         </left>
+         <right>
+            <HBox spacing="10.0" BorderPane.alignment="CENTER">
+               <children>
+                  <Button mnemonicParsing="false" onAction="#handleTallenna" text="Tallenna">
+                     <tooltip>
+                        <Tooltip text="Tallentaa tehdyt muutokset" />
+                     </tooltip></Button>
+               </children>
+               <padding>
+                  <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+               </padding>
+            </HBox>
+         </right>
+      </BorderPane>
+   </bottom>
+</BorderPane>

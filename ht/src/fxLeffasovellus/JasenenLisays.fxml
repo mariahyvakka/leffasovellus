@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.RowConstraints?>
+
+<BorderPane fx:id="textLisaaikkuna" prefHeight="100.0" prefWidth="300.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="fxLeffasovellus.JasenenLisaysController">
+   <bottom>
+      <HBox prefHeight="40.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+         <children>
+            <Button mnemonicParsing="false" onAction="#handlePeruuta" text="Peruuta">
+               <HBox.margin>
+                  <Insets bottom="10.0" left="70.0" right="30.0" top="10.0" />
+               </HBox.margin>
+            </Button>
+            <Button mnemonicParsing="false" onAction="#handleOK" prefHeight="25.0" prefWidth="56.0" text="OK">
+               <HBox.margin>
+                  <Insets bottom="10.0" left="30.0" right="50.0" top="10.0" />
+               </HBox.margin>
+            </Button>
+         </children>
+      </HBox>
+   </bottom>
+   <top>
+      <ScrollPane fitToWidth="true" pannable="true" BorderPane.alignment="CENTER">
+         <content>
+            <GridPane>
+               <columnConstraints>
+                  <ColumnConstraints fillWidth="false" halignment="RIGHT" hgrow="NEVER" minWidth="10.0" />
+                  <ColumnConstraints hgrow="ALWAYS" minWidth="10.0" />
+               </columnConstraints>
+               <rowConstraints>
+                  <RowConstraints minHeight="10.0" vgrow="SOMETIMES" />
+               </rowConstraints>
+               <children>
+                  <Label text="nimi">
+                     <padding>
+                        <Insets right="5.0" />
+                     </padding></Label>
+                  <TextField fx:id="textAnnaNimi" promptText="Anna nimi" GridPane.columnIndex="1" GridPane.hgrow="ALWAYS" />
+               </children>
+               <opaqueInsets>
+                  <Insets left="10.0" top="10.0" />
+               </opaqueInsets>
+               <padding>
+                  <Insets bottom="20.0" left="10.0" right="10.0" top="20.0" />
+               </padding>
+            </GridPane>
+         </content>
+      </ScrollPane>
+   </top>
+   <center>
+      <Label fx:id="labelVirhe" prefHeight="17.0" prefWidth="300.0" BorderPane.alignment="CENTER" />
+   </center>
+</BorderPane>
